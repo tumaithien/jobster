@@ -242,6 +242,13 @@ ul {
 }
 .form-row {
   margin-bottom: 1rem;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 7px);
+  cursor: pointer;
 }
 
 .form-textarea {

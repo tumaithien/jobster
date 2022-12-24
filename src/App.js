@@ -8,7 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="landing" element={<Landing />} />
-        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer position="top-center" />
