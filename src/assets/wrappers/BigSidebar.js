@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.aside`
   display: none;
@@ -54,6 +54,7 @@ const Wrapper = styled.aside`
       display: grid;
       place-items: center;
       transition: var(--transition);
+      position: unset;
     }
     .active {
       color: var(--grey-900);
@@ -62,5 +63,5 @@ const Wrapper = styled.aside`
       color: var(--primary-500);
     }
   }
-`
-export default Wrapper
+`;
+export default Wrapper;
