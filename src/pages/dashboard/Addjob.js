@@ -6,8 +6,10 @@ import {
   clearValues,
   createJob,
   handleChange,
+  editJob,
 } from "../../feartures/job/jobSlice";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Addjob = () => {
   const {
@@ -22,13 +24,8 @@ const Addjob = () => {
     isEditing,
     editJobId,
   } = useSelector((store) => store.job);
-  const { user } = useSelector((store) => store.user);
-  useEffect(() => {
-    if (!isEditing) {
-      dispatch(handleChange({ name: "jobLocation", value: user.location }));
-    }
-  });
   const dispatch = useDispatch();
+  const { user } = useSelector((store) => store.user);
   const handleJobInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -40,8 +37,29 @@ const Addjob = () => {
       toast.error("Please Fill Out All Fields");
       return;
     }
+    if (isEditing) {
+      dispatch(
+        editJob({
+          jobId: editJobId,
+          job: {
+            company,
+            jobType,
+            jobLocation,
+            status,
+            position,
+          },
+        })
+      );
+      return;
+    }
     dispatch(createJob({ position, company, jobLocation, jobType, status }));
   };
+  useEffect(() => {
+    if (!isEditing) {
+      dispatch(handleChange({ name: "jobLocation", value: user.location }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Wrapper>
       <form className="form">
@@ -93,7 +111,7 @@ const Addjob = () => {
               onClick={handleSubmit}
               disabled={isLoading}
             >
-              submit
+              {isEditing ? "update" : "submit"}
             </button>
           </div>
         </div>
