@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.article`
   background: var(--white);
@@ -60,6 +60,7 @@ const Wrapper = styled.article`
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 0.5rem;
+    column-gap: 0.5rem;
     @media (min-width: 576px) {
       grid-template-columns: 1fr 1fr;
     }

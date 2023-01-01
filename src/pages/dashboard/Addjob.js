@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FormRow, FormRowSelect } from "../../components";
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
@@ -22,6 +22,12 @@ const Addjob = () => {
     isEditing,
     editJobId,
   } = useSelector((store) => store.job);
+  const { user } = useSelector((store) => store.user);
+  useEffect(() => {
+    if (!isEditing) {
+      dispatch(handleChange({ name: "jobLocation", value: user.location }));
+    }
+  });
   const dispatch = useDispatch();
   const handleJobInput = (e) => {
     const name = e.target.name;
