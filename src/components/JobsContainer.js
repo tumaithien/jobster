@@ -7,6 +7,7 @@ import { getAllJobs } from "../feartures/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
   const { jobs, isLoading } = useSelector((store) => store.allJobs);
+  console.log(jobs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllJobs());
