@@ -8,6 +8,8 @@ import Navbar from "./Navbar";
 import NavLinks from "./NavLinks";
 import SearchContainer from "./SearchContainer";
 import SmallSidebar from "./SmallSidebar";
+import StatsContainer from "./StatsContainer";
+import ChartsContainer from "./ChartsContainer";
 
 export {
   Logo,
@@ -20,4 +22,6 @@ export {
   SearchContainer,
   JobsContainer,
   Job,
+  StatsContainer,
+  ChartsContainer,
 };
